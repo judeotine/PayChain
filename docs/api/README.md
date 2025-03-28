@@ -5,6 +5,7 @@
 The PayChain API provides a comprehensive interface for interacting with the PayChain payment system. This documentation outlines all available endpoints, request/response formats, and authentication requirements.
 
 ## Base URL
+
 ```//-
 ```plaintext//+
 >>>>>>> Tabnine >>>>>>>// {"conversationId":"28d8c60a-74f5-49ab-baf0-f39510e30854","source":"instruct"}
@@ -16,6 +17,7 @@ https://<canister-id>.ic0.app
 All API requests require authentication using Internet Identity. Include the following header:
 
 All API requests require authentication using Internet Identity. Include the following header:
+
 ```
 
 ## Endpoints
@@ -29,6 +31,7 @@ POST /api/payments
 ```
 
 Request:
+
 ```json
 {
   "amount": "1000000000", // Amount in e8s (0.1 ICP)
@@ -37,6 +40,7 @@ Request:
 ```
 
 Response:
+
 ```json
 {
   "id": "123",
@@ -49,11 +53,13 @@ Response:
 ```
 
 ### Get Balance
+
 ```http
 GET /api/balance
 ```
 
 Response:
+
 ```json
 {
   "balance": "5000000000" // Balance in e8s (0.5 ICP)
@@ -75,6 +81,7 @@ Query Parameters:
 - `status`: Filter by status
 - `startDate`: Start date timestamp
 - `endDate`: End date timestamp
+
 ```json
 {
   "transactions": [
@@ -100,6 +107,7 @@ GET /api/transactions/{id}
 ```
 
 Response:
+
 ```json
 {
   "id": "123",
@@ -120,6 +128,7 @@ GET /api/receipts/{transactionId}
 ```
 
 Response:
+
 ```json
 {
   "id": "123",
@@ -142,6 +151,7 @@ GET /api/security/status
 ```
 
 Response:
+
 ```json
 {
   "rateLimit": {
@@ -161,6 +171,7 @@ POST /api/security/report
 ```
 
 Request:
+
 ```json
 {
   "type": "suspicious_activity",
@@ -178,11 +189,13 @@ GET /api/analytics/transactions
 ```
 
 Query Parameters:
+
 - `startDate`: Start date timestamp
 - `endDate`: End date timestamp
 - `groupBy`: "day" | "week" | "month"
 
 Response:
+
 ```json
 {
   "totalTransactions": 100,
@@ -205,6 +218,7 @@ GET /api/analytics/health
 ```
 
 Response:
+
 ```json
 {
   "uptime": 99.99,
@@ -229,6 +243,7 @@ All endpoints may return the following error responses:
 ```
 
 Common Error Codes:
+
 - `AUTH_REQUIRED`: Authentication required
 - `INVALID_INPUT`: Invalid request parameters
 - `INSUFFICIENT_FUNDS`: Insufficient balance
@@ -241,6 +256,7 @@ Common Error Codes:
 - 100 requests per minute per IP
 - 1000 requests per hour per user
 - Rate limit headers included in responses:
+
   ```
   X-RateLimit-Limit: 100
   X-RateLimit-Remaining: 95
@@ -256,13 +272,17 @@ wss://<canister-id>.ic0.app/ws
 ```
 
 ### Events
+
 ### WebSocket Events
+
 ### Events
 
 ### WebSocket Events
+
 1. Transaction Updates
 
 2. Balance Updates
+
 ```json
 {
   "type": "balance",
@@ -273,6 +293,7 @@ wss://<canister-id>.ic0.app/ws
 ```
 
 3. Security Alerts
+
 ```json
 {
   "type": "security_alert",
