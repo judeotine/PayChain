@@ -6,9 +6,7 @@ The PayChain API provides a comprehensive interface for interacting with the Pay
 
 ## Base URL
 
-```//-
-```plaintext//+
->>>>>>> Tabnine >>>>>>>// {"conversationId":"28d8c60a-74f5-49ab-baf0-f39510e30854","source":"instruct"}
+```plaintext
 https://<canister-id>.ic0.app
 ```
 
@@ -17,6 +15,8 @@ https://<canister-id>.ic0.app
 All API requests require authentication using Internet Identity. Include the following header:
 
 All API requests require authentication using Internet Identity. Include the following header:
+
+https://<canister-id>.ic0.app
 
 ```
 
@@ -273,7 +273,7 @@ wss://<canister-id>.ic0.app/ws
 
 ### Events
 
-### WebSocket Events
+### WebSocket Events Overview
 
 ### Events
 
@@ -292,7 +292,7 @@ wss://<canister-id>.ic0.app/ws
 }
 ```
 
-3. Security Alerts
+1. Security Alerts
 
 ```json
 {
@@ -348,6 +348,12 @@ balance = client.get_balance()
 
 # Subscribe to updates
 client.subscribe('transaction', lambda data: print('New transaction:', data))
+```
+
+### JavaScript
+
+```javascript
+// Your code here
 ```
 
 ## Versioning
