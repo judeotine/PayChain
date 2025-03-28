@@ -11,12 +11,10 @@ import Result "mo:base/Result";
 import Hash "mo:base/Hash";
 import Blob "mo:base/Blob";
 import Text "mo:base/Text";
-
 // Types for the payment system
 type TransactionId = Nat;
 type Amount = Nat;
 type Timestamp = Int;
-
 // Enhanced types for security and analytics
 type RateLimit = {
     requestsPerMinute: Nat;
@@ -25,7 +23,6 @@ type RateLimit = {
     lastReset: Timestamp;
     requestCount: Nat;
 };
-
 type FraudPattern = {
     #HighVelocity;
     #MultipleSmallTransactions;
@@ -34,7 +31,6 @@ type FraudPattern = {
     #NewUserHighValue;
     #GeographicAnomaly;
 };
-
 type TransactionVelocity = {
     lastHour: Nat;
     lastDay: Nat;
@@ -43,7 +39,6 @@ type TransactionVelocity = {
     averageAmount: Amount;
     maxAmount: Amount;
 };
-
 type UserBehavior = {
     preferredCategories: [Text];
     typicalTransactionTimes: [Nat]; // Hour of day (0-23)
@@ -51,7 +46,6 @@ type UserBehavior = {
     averageTransactionAmount: Amount;
     transactionFrequency: Nat; // Transactions per day
 };
-
 type GeographicData = {
     country: ?Text;
     region: ?Text;
@@ -59,7 +53,6 @@ type GeographicData = {
     ipAddress: ?Text;
     lastKnownLocation: ?Text;
 };
-
 type SystemHealth = {
     lastCheck: Timestamp;
     errorRate: Float;
@@ -68,7 +61,6 @@ type SystemHealth = {
     systemLoad: Float;
     memoryUsage: Float;
 };
-
 // Enhanced Transaction type
 type Transaction = {
     id: TransactionId;
@@ -91,7 +83,6 @@ type Transaction = {
     templateId: ?Nat; // For transaction templates
     errorDetails: ?ErrorDetails;
 };
-
 type ErrorDetails = {
     code: Nat;
     category: ErrorCategory;
@@ -100,7 +91,6 @@ type ErrorDetails = {
     recoveryAttempted: Bool;
     recoveryStatus: ?Text;
 };
-
 type ErrorCategory = {
     #Validation;
     #Security;
@@ -109,7 +99,6 @@ type ErrorCategory = {
     #Business;
     #Unknown;
 };
-
 // Enhanced UserBalance type
 type UserBalance = {
     principal: Principal;
@@ -128,7 +117,6 @@ type UserBalance = {
     geographicData: GeographicData;
     transactionLimits: TransactionLimits;
 };
-
 type TransactionLimits = {
     dailyLimit: Amount;
     weeklyLimit: Amount;
@@ -136,7 +124,6 @@ type TransactionLimits = {
     perTransactionLimit: Amount;
     categoryLimits: [(Text, Amount)];
 };
-
 // Enhanced SystemStats type
 type SystemStats = {
     totalTransactions: Nat;
@@ -154,21 +141,18 @@ type SystemStats = {
     errorStats: ErrorStats;
     velocityStats: VelocityStats;
 };
-
 type ErrorStats = {
     totalErrors: Nat;
     errorByCategory: [(ErrorCategory, Nat)];
     recentErrors: [ErrorDetails];
     errorRate: Float;
 };
-
 type VelocityStats = {
     averageTransactionVelocity: Float;
     peakTransactionVelocity: Nat;
     velocityByHour: [(Nat, Nat)]; // Hour -> Count
     velocityByCategory: [(Text, Nat)];
 };
-
 type TransactionStatus = {
     #Pending;
     #Completed;
@@ -177,21 +161,18 @@ type TransactionStatus = {
     #Cancelled;
     #Refunded;
 };
-
 type RefundStatus = {
     #Pending;
     #Completed;
     #Failed;
     #Rejected;
 };
-
 type KYCStatus = {
     #NotVerified;
     #Pending;
     #Verified;
     #Rejected;
 };
-
 type NFTReceipt = {
     id: Nat;
     transactionId: TransactionId;
@@ -206,7 +187,6 @@ type NFTReceipt = {
         imageUrl: ?Text;
     };
 };
-
 type AnalyticsData = {
     dailyVolume: [(Timestamp, Amount)];
     userActivity: [(Principal, Nat)];
@@ -214,7 +194,6 @@ type AnalyticsData = {
     fraudAttempts: [(Timestamp, Nat)];
     kycStats: [(KYCStatus, Nat)];
 };
-
 // Enhanced security types
 type IPBlockList = {
     ipAddress: Text;
@@ -223,7 +202,6 @@ type IPBlockList = {
     expiresAt: ?Timestamp;
     riskScore: Nat;
 };
-
 type SecurityRule = {
     id: Nat;
     name: Text;
@@ -232,7 +210,6 @@ type SecurityRule = {
     action: SecurityAction;
     enabled: Bool;
 };
-
 type SecurityCondition = {
     #IPRange;
     #TransactionAmount;
@@ -242,7 +219,6 @@ type SecurityCondition = {
     #TimeWindow;
     #TransactionPattern;
 };
-
 type SecurityAction = {
     #BlockUser;
     #RequireKYC;
@@ -250,7 +226,6 @@ type SecurityAction = {
     #FlagSuspicious;
     #NotifyAdmin;
 };
-
 // Enhanced analytics types
 type TransactionReport = {
     period: Text; // "daily", "weekly", "monthly", "yearly"
@@ -265,7 +240,6 @@ type TransactionReport = {
     geographicDistribution: [(Text, Nat)];
     timeDistribution: [(Nat, Nat)]; // Hour -> Count
 };
-
 type RiskMetrics = {
     suspiciousTransactions: Nat;
     blockedTransactions: Nat;
@@ -273,7 +247,6 @@ type RiskMetrics = {
     fraudAttempts: Nat;
     averageRiskScore: Float;
 };
-
 // Enhanced transaction management types
 type RecurringPayment = {
     id: Nat;
@@ -290,7 +263,6 @@ type RecurringPayment = {
     tags: [Text];
     metadata: ?Blob;
 };
-
 type PaymentFrequency = {
     #Daily;
     #Weekly;
@@ -298,7 +270,6 @@ type PaymentFrequency = {
     #Yearly;
     #Custom;
 };
-
 type RecurringPaymentStatus = {
     #Active;
     #Paused;
@@ -306,7 +277,6 @@ type RecurringPaymentStatus = {
     #Cancelled;
     #Failed;
 };
-
 type BulkTransaction = {
     id: Nat;
     from: Principal;
@@ -319,7 +289,6 @@ type BulkTransaction = {
     tags: [Text];
     metadata: ?Blob;
 };
-
 type BulkTransactionItem = {
     to: Principal;
     amount: Amount;
@@ -328,7 +297,6 @@ type BulkTransactionItem = {
     tags: [Text];
     metadata: ?Blob;
 };
-
 type BulkTransactionStatus = {
     #Pending;
     #Processing;
@@ -336,7 +304,6 @@ type BulkTransactionStatus = {
     #Failed;
     #PartiallyCompleted;
 };
-
 // Enhanced error handling types
 type ErrorRecovery = {
     id: Nat;
@@ -347,7 +314,6 @@ type ErrorRecovery = {
     action: RecoveryAction;
     result: ?Text;
 };
-
 type RecoveryStatus = {
     #Pending;
     #InProgress;
@@ -355,7 +321,6 @@ type RecoveryStatus = {
     #Failed;
     #Abandoned;
 };
-
 type RecoveryAction = {
     #RetryTransaction;
     #RollbackTransaction;
@@ -363,7 +328,6 @@ type RecoveryAction = {
     #EscalateToAdmin;
     #BlockUser;
 };
-
 // Enhanced security types for ML-based fraud detection
 type MLScore = {
     fraudProbability: Float;
@@ -371,14 +335,12 @@ type MLScore = {
     confidence: Float;
     lastUpdated: Timestamp;
 };
-
 type RiskFactor = {
     name: Text;
     score: Float;
     weight: Float;
     description: Text;
 };
-
 type IPReputation = {
     ipAddress: Text;
     reputationScore: Float;
@@ -387,21 +349,18 @@ type IPReputation = {
     activityHistory: [IPActivity];
     threatIndicators: [ThreatIndicator];
 };
-
 type RiskLevel = {
     #Low;
     #Medium;
     #High;
     #Critical;
 };
-
 type IPActivity = {
     timestamp: Timestamp;
     activityType: ActivityType;
     riskScore: Float;
     details: Text;
 };
-
 type ActivityType = {
     #LoginAttempt;
     #Transaction;
@@ -409,7 +368,6 @@ type ActivityType = {
     #SuspiciousPattern;
     #Blocked;
 };
-
 type ThreatIndicator = {
     type = ThreatType;
     severity = Float;
@@ -417,7 +375,6 @@ type ThreatIndicator = {
     firstSeen = Timestamp;
     lastSeen = Timestamp;
 };
-
 type ThreatType = {
     #Malware;
     #Botnet;
@@ -427,7 +384,6 @@ type ThreatType = {
     #Spam;
     #Scam;
 };
-
 // Enhanced analytics types for predictive analytics
 type PredictiveAnalytics = {
     transactionForecast: [TransactionForecast];
@@ -435,34 +391,29 @@ type PredictiveAnalytics = {
     userBehaviorPatterns: [BehaviorPattern];
     marketTrends: [MarketTrend];
 };
-
 type TransactionForecast = {
     timestamp: Timestamp;
     expectedVolume: Amount;
     confidence: Float;
     factors: [ForecastFactor];
 };
-
 type ForecastFactor = {
     name: Text;
     impact: Float;
     trend: Trend;
 };
-
 type Trend = {
     #Up;
     #Down;
     #Stable;
     #Volatile;
 };
-
 type RiskPrediction = {
     timestamp: Timestamp;
     riskLevel: RiskLevel;
     probability: Float;
     contributingFactors: [Text];
 };
-
 type BehaviorPattern = {
     patternType: PatternType;
     confidence: Float;
@@ -470,14 +421,12 @@ type BehaviorPattern = {
     lastOccurrence: Timestamp;
     details: Text;
 };
-
 type PatternType = {
     #Regular;
     #Anomaly;
     #Seasonal;
     #Trend;
 };
-
 type MarketTrend = {
     period: Text;
     trend: Trend;
@@ -485,14 +434,12 @@ type MarketTrend = {
     confidence: Float;
     indicators: [MarketIndicator];
 };
-
 type MarketIndicator = {
     name: Text;
     value: Float;
     change: Float;
     impact: Float;
 };
-
 // Enhanced transaction management types
 type TransactionTemplate = {
     id: Nat;
@@ -509,34 +456,29 @@ type TransactionTemplate = {
     conditions: [TemplateCondition];
     status: TemplateStatus;
 };
-
 type Schedule = {
     startDate: Timestamp;
     endDate: ?Timestamp;
     intervals: [ScheduleInterval];
     timezone: Text;
 };
-
 type ScheduleInterval = {
     type: IntervalType;
     value: Nat;
     startTime: ?Nat; // Hour of day (0-23)
     endTime: ?Nat; // Hour of day (0-23)
 };
-
 type IntervalType = {
     #Daily;
     #Weekly;
     #Monthly;
     #Custom;
 };
-
 type TemplateCondition = {
     type: ConditionType;
     value: Text;
     operator: Operator;
 };
-
 type ConditionType = {
     #Balance;
     #Time;
@@ -544,7 +486,6 @@ type ConditionType = {
     #KYCStatus;
     #Custom;
 };
-
 type Operator = {
     #Equals;
     #NotEquals;
@@ -552,14 +493,12 @@ type Operator = {
     #LessThan;
     #Contains;
 };
-
 type TemplateStatus = {
     #Active;
     #Paused;
     #Expired;
     #Deleted;
 };
-
 // Enhanced error handling types
 type ErrorResolution = {
     id: Nat;
@@ -570,14 +509,12 @@ type ErrorResolution = {
     finalResult: ?Text;
     resolvedAt: ?Timestamp;
 };
-
 type ResolutionType = {
     #Automatic;
     #Manual;
     #Hybrid;
     #Escalated;
 };
-
 type ResolutionStatus = {
     #Pending;
     #InProgress;
@@ -585,7 +522,6 @@ type ResolutionStatus = {
     #Failed;
     #Escalated;
 };
-
 type ResolutionAttempt = {
     timestamp: Timestamp;
     type: ResolutionType;
@@ -593,7 +529,6 @@ type ResolutionAttempt = {
     success: Bool;
     details: ?Text;
 };
-
 actor {
     // State variables
     private var nextTransactionId: TransactionId = 0;
@@ -2707,7 +2642,6 @@ actor {
             };
         }
     };
-
     // Implement error code mapping
     private func mapErrorCode(error: Text, category: ErrorCategory) : Nat {
         let baseCode = switch (category) {
@@ -2749,7 +2683,6 @@ actor {
         
         baseCode + specificCode
     };
-
     // Implement response time tracking
     private func trackResponseTime(startTime: Int) : async () {
         let endTime = Time.now();
@@ -2779,7 +2712,6 @@ actor {
             velocityStats = systemStats.velocityStats;
         };
     };
-
     // Implement connection tracking
     private func trackConnection(connected: Bool) : async () {
         let currentConnections = if (connected) {
@@ -2816,7 +2748,6 @@ actor {
             velocityStats = systemStats.velocityStats;
         };
     };
-
     // Implement system load tracking
     private func trackSystemLoad() : async () {
         let currentLoad = Float.fromInt(systemStats.activeUsers) / 1000.0;
@@ -2845,7 +2776,6 @@ actor {
             velocityStats = systemStats.velocityStats;
         };
     };
-
     // Implement memory usage tracking
     private func trackMemoryUsage() : async () {
         let currentMemory = Float.fromInt(systemStats.totalTransactions) / 1_000_000.0;
@@ -2874,7 +2804,6 @@ actor {
             velocityStats = systemStats.velocityStats;
         };
     };
-
     // Update handleError function to use error code mapping
     private func handleError(
         transactionId: TransactionId,
@@ -2949,7 +2878,6 @@ actor {
             case null {};
         };
     };
-
     // Update updateSystemHealth function to use new tracking functions
     private func updateSystemHealth() : async () {
         let currentTime = Time.now();
