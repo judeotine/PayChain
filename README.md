@@ -68,7 +68,7 @@ If you are making frontend changes, you can start a development server with
 
 ```bash
 npm start
-```
+```bash
 
 Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
 

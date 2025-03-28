@@ -37,7 +37,7 @@ Request:
   "amount": "1000000000", // Amount in e8s (0.1 ICP)
   "recipient": "principal-id"
 }
-```
+```plaintext
 
 Response:
 
@@ -50,7 +50,7 @@ Response:
   "timestamp": 1634567890,
   "status": "completed"
 }
-```
+```plaintext
 
 ### Get Balance
 
@@ -271,7 +271,7 @@ Common Error Codes:
 wss://<canister-id>.ic0.app/ws
 ```
 
-### WebSocket Events Overview
+### WebSocket Events Summary
 
 ### WebSocket Events Overview
 
