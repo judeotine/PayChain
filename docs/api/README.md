@@ -8,7 +8,7 @@ The PayChain API provides a comprehensive interface for interacting with the Pay
 
 ```plaintext
 https://<canister-id>.ic0.app
-```
+```plaintext
 
 ## Authentication
 
@@ -18,7 +18,7 @@ All API requests require authentication using Internet Identity. Include the fol
 
 https://<canister-id>.ic0.app
 
-```
+```plaintext
 
 ## Endpoints
 
@@ -28,7 +28,7 @@ https://<canister-id>.ic0.app
 
 ```http
 POST /api/payments
-```
+```plaintext
 
 Request:
 
@@ -271,7 +271,7 @@ Common Error Codes:
 wss://<canister-id>.ic0.app/ws
 ```
 
-### Events
+### WebSocket Events Overview
 
 ### WebSocket Events Overview
 
@@ -328,6 +328,12 @@ const balance = await client.getBalance();
 client.subscribe('transaction', (data) => {
   console.log('New transaction:', data);
 });
+
+// User interface example
+interface User {
+  id: number;
+  name: string;
+}
 ```
 
 ### Python
@@ -354,6 +360,13 @@ client.subscribe('transaction', lambda data: print('New transaction:', data))
 
 ```javascript
 // Your code here
+```
+
+### Build Instructions
+
+```bash
+npm install
+npm run build
 ```
 
 ## Versioning
