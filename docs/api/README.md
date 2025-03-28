@@ -5,8 +5,9 @@
 The PayChain API provides a comprehensive interface for interacting with the PayChain payment system. This documentation outlines all available endpoints, request/response formats, and authentication requirements.
 
 ## Base URL
-
-```
+```//-
+```plaintext//+
+>>>>>>> Tabnine >>>>>>>// {"conversationId":"28d8c60a-74f5-49ab-baf0-f39510e30854","source":"instruct"}
 https://<canister-id>.ic0.app
 ```
 
@@ -14,8 +15,7 @@ https://<canister-id>.ic0.app
 
 All API requests require authentication using Internet Identity. Include the following header:
 
-```
-Authorization: Bearer <token>
+All API requests require authentication using Internet Identity. Include the following header:
 ```
 
 ## Endpoints
@@ -48,8 +48,7 @@ Response:
 }
 ```
 
-#### Get Balance
-
+### Get Balance
 ```http
 GET /api/balance
 ```
@@ -70,13 +69,12 @@ GET /api/transactions
 ```
 
 Query Parameters:
+
 - `page`: Page number (default: 1)
 - `limit`: Items per page (default: 10)
 - `status`: Filter by status
 - `startDate`: Start date timestamp
 - `endDate`: End date timestamp
-
-Response:
 ```json
 {
   "transactions": [
@@ -258,17 +256,11 @@ wss://<canister-id>.ic0.app/ws
 ```
 
 ### Events
+### WebSocket Events
+### Events
 
+### WebSocket Events
 1. Transaction Updates
-```json
-{
-  "type": "transaction",
-  "data": {
-    "id": "123",
-    "status": "completed"
-  }
-}
-```
 
 2. Balance Updates
 ```json
@@ -340,12 +332,14 @@ client.subscribe('transaction', lambda data: print('New transaction:', data))
 ## Versioning
 
 The API is versioned through the URL path:
+
 - Current version: `/api/v1/`
 - Legacy version: `/api/v0/`
 
 ## Support
 
 For API support:
-- Email: support@paychain.com
-- Documentation: https://docs.paychain.com
-- GitHub Issues: https://github.com/paychain/issues 
+
+- Email: <support@paychain.com>
+- Documentation: [https://docs.paychain.com](https://docs.paychain.com)
+- GitHub Issues: [https://github.com/paychain/issues](https://github.com/paychain/issues)- GitHub Issues: [https://github.com/paychain/issues](https://github.com/paychain/issues)
