@@ -15,17 +15,20 @@ The PayChain backend is implemented in Motoko and runs on the Internet Computer 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/PayChain.git
 cd PayChain/src/PayChain_backend
 ```
 
-2. Start the local Internet Computer replica:
+1. Start the local Internet Computer replica:
+
 ```bash
 dfx start --background
 ```
 
-3. Deploy the canister:
+1. Deploy the canister:
+
 ```bash
 dfx deploy
 ```
@@ -63,6 +66,7 @@ type Transaction = {
 ### Main Functions
 
 1. **Payment Processing**
+
    ```motoko
    public func processPayment(amount: Amount, recipient: Principal) : async Transaction {
        // Implementation
@@ -70,6 +74,7 @@ type Transaction = {
    ```
 
 2. **Balance Management**
+
    ```motoko
    public func getBalance(principal: Principal) : async Amount {
        // Implementation
@@ -77,6 +82,7 @@ type Transaction = {
    ```
 
 3. **Transaction History**
+
    ```motoko
    public func getTransactions(principal: Principal) : async [Transaction] {
        // Implementation
@@ -202,12 +208,14 @@ private func testTransactionFlow() : async Bool {
 ## Deployment
 
 1. **Local Development**
+
    ```bash
    dfx start --background
    dfx deploy
    ```
 
 2. **Production Deployment**
+
    ```bash
    dfx deploy --network=ic
    ```
@@ -262,4 +270,4 @@ public func upgrade(newVersion: Text) : async () {
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.
