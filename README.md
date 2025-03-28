@@ -40,7 +40,7 @@ If you want to start working on your project right away, you might want to try t
 cd PayChain/
 dfx help
 dfx canister --help
-```
+```bash
 
 ## Running the project locally
 
@@ -52,7 +52,7 @@ dfx start --background
 
 # Deploys your canisters to the replica and generates your candid interface
 dfx deploy
-```
+```bash
 
 Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
 
@@ -60,7 +60,7 @@ If you have made changes to your backend canister, you can generate a new candid
 
 ```bash
 npm run generate
-```
+```bash
 
 at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
 
@@ -108,6 +108,7 @@ PayChain/
 ### Frontend Development
 
 The frontend is built with:
+
 - React + TypeScript
 - Material-UI
 - Zustand for state management
@@ -118,6 +119,7 @@ The frontend is built with:
 ### Backend Development
 
 The backend is implemented in Motoko and includes:
+
 - Payment processing
 - Transaction management
 - Security features
@@ -145,11 +147,13 @@ dfx test
 ### Local Development
 
 1. Start the local replica:
+
 ```bash
 dfx start --background
 ```
 
-2. Deploy the canister:
+1. Deploy the canister:
+
 ```bash
 dfx deploy
 ```
@@ -157,11 +161,13 @@ dfx deploy
 ### Production Deployment
 
 1. Deploy to the Internet Computer:
+
 ```bash
 dfx deploy --network=ic
 ```
 
-2. Build and deploy the frontend:
+1. Build and deploy the frontend:
+
 ```bash
 cd src/PayChain_frontend
 npm run build
@@ -171,6 +177,7 @@ npm run deploy
 ## Security
 
 PayChain implements comprehensive security measures:
+
 - Rate limiting
 - Fraud detection
 - IP blocking
@@ -193,9 +200,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 For support:
-- Email: support@paychain.com
-- Documentation: https://docs.paychain.com
-- GitHub Issues: https://github.com/paychain/issues
+
+- Email: <support@paychain.com>
+- Documentation: <https://docs.paychain.com>
+- GitHub Issues: <https://github.com/paychain/issues>
 
 ## Acknowledgments
 
